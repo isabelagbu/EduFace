@@ -14,8 +14,18 @@
   - Email: rodriguesdelmaw@student.douglascollege.ca
 #### # ====================================
 
-## About
-Emotion-Triggered Micro-Adaptation: A Real-Time Feedback System for Personalized Digital Learning
+# Emotion-Triggered Micro-Adaptation (EduFace)
+*A real-time adaptive learning system using webcam emotion detection.*
+
+This project implements a **video-based, emotion-aware learning system** that detects learner emotions through a webcam and triggers **micro-adaptations** (quizzes, summaries, pauses, encouragement messages) to improve engagement and comprehension.  
+Developed as part of the research paper:
+
+**“Emotion-Triggered Micro-Adaptation: A Real-Time Feedback System for Personalized Digital Learning”**  
+*Douglas College, 2025*
+
+<p align="center">
+<img width="460" height="271" alt="image" src="https://github.com/user-attachments/assets/82ed309a-1d42-46c2-a885-fd198facae1a" style="width: 850px; height:530px"/>
+</p>
 
 Research Questions:
 1. Which learner emotions can be reliable detected in real time using facial expressions during learning sessions?
@@ -26,6 +36,56 @@ Research Objectives:
 1. To assess the real-time detection accuracy of learner emotions based on facial expressions during digital learning.
 2. To design and implement adaptive micro-inventions (e.g., pauses, content slowing, hints) based on real-time emotional cues.
 3. To evaluate the impact on emotion-triggered real-time adaptations on learner engagement and short-term comprehension.
+
+--- 
+
+## Key Features
+
+- **Webcam Emotion Detection** using DeepFace + OpenCV  
+- **Real-Time Adaptations**, including:  
+  - Recall questions  
+  - Summaries  
+  - Encouragement messages  
+  - Rewind  
+  - Slow playback  
+  - Pause & reflect  
+- **Socket.IO communication** between frontend and backend  
+- **React + TypeScript video-based learning UI**  
+- **Adaptation logs** for research and analysis
+
+--- 
+
+## Research Results (Pilot Study)
+
+- Tested with **12 Douglas College students**  
+- **82 micro-adaptations** triggered across sessions  
+- **Question recaps** identified as the most effective intervention  
+- Participants reported higher focus vs. traditional video learning  
+- Average quiz score: **6.75 / 10**  
+- Strong interest in using similar systems for studying challenging material  
+
+--- 
+
+## Tech Stack
+
+**Frontend:** React, TypeScript, Socket.IO  
+**Backend:** Python, DeepFace, OpenCV, Socket.IO Server  
+
+---
+
+## How It Works
+
+1. Webcam frames are captured and sent to the backend via sockets  
+2. DeepFace analyzes the dominant emotion  
+3. Emotion → pedagogical state mapping determines:  
+   - Engagement  
+   - Disengagement  
+   - Confusion  
+   - Frustration  
+4. The system triggers a micro-adaptation using thresholds + cooldown timers  
+5. Events are logged for later analysis
+
+<img width="380" height="277" alt="image" src="https://github.com/user-attachments/assets/5953a9bf-05de-48f2-8a91-1af25dccde9e" />
 
 ## Initial Setup (Windows)
 To start developing this wonderful idea, you need to follow these steps:
