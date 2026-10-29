@@ -6,7 +6,7 @@ import QuestionHandler from '../microadaptations/QuestionHandler';
 import SummaryHandler from '../microadaptations/SummaryHandler';
 import SlowPlaybackHandler from '../microadaptations/SlowPlaybackHandler';
 import socket from '../services/socket'; // Add socket import
-import beginAudio from '../assets/begin.mp3';
+import beginAudio from '../assets/Begin.mp3';
 import '../styles/LearningPage.css';
 import LearningContent from '../components/LearningContent';
 

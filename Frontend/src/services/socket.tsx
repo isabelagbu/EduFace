@@ -4,7 +4,7 @@ import { io, Socket } from 'socket.io-client';
 class SocketManager {
     private static instance: SocketManager;
     private socket!: Socket;
-    private URL = "http://localhost:3000";
+    private URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
   connected: any;
 
     constructor() {

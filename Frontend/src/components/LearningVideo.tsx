@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import learningVideo from '../assets/learningvideo.mp4';
+import learningVideo from '../assets/LearningVideo.mp4';
 import { useRewind } from '../microadaptations/RewindHandler';
 import { usePauseReflect } from '../microadaptations/PauseReflectHandler';
 import { useQuestion } from '../microadaptations/QuestionHandler';
