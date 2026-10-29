@@ -1,21 +1,22 @@
 /* ===== EduFace design tokens ===== */
 :root {
-  --ground: #E7EDEB;      /* cool mist page ground */
-  --surface: #FFFFFF;
-  --surface-2: #F3F6F5;
-  --line: #D3DDDA;
-  --ink: #17262E;         /* deep slate */
-  --ink-2: #4E5F67;       /* secondary text */
-  --stage: #101C23;       /* dark stage behind the lesson video */
-  --accent: #1D6B66;      /* deep teal */
-  --accent-hover: #155550;
-  --accent-soft: #DCEBE8;
-  --ok: #2E7D4F;
-  --ok-soft: #DDEFE3;
-  --warn: #A3480F;
-  --warn-soft: #F7E6D8;
-  --error: #B42318;
-  --error-soft: #FBE3E1;
+  --ground: #1A1440;                       /* night indigo under the gradient */
+  --surface: rgba(255, 255, 255, 0.14);      /* frosted glass */
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.26);
+  --ink: #FFFFFF;
+  --ink-2: rgba(255, 255, 255, 0.8);
+  --stage: #120E2E;
+  --accent: #5EE7DF;                        /* aqua highlight for text/links */
+  --accent-hover: #A5F3EE;
+  --accent-soft: rgba(94, 231, 223, 0.18);
+  --grad: linear-gradient(120deg, #22D3EE 0%, #818CF8 50%, #E879F9 100%);
+  --ok: #6EF2A8;
+  --ok-soft: rgba(110, 242, 168, 0.18);
+  --warn: #FFD27A;
+  --warn-soft: rgba(255, 210, 122, 0.18);
+  --error: #FF9B9B;
+  --error-soft: rgba(255, 120, 120, 0.2);
 
   --font-display: 'Bricolage Grotesque', 'Atkinson Hyperlegible', system-ui, sans-serif;
   --font-body: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -23,12 +24,12 @@
   --radius-lg: 18px;
   --radius-md: 12px;
   --radius-sm: 8px;
-  --shadow: 0 1px 2px rgba(23, 38, 46, 0.06), 0 8px 24px rgba(23, 38, 46, 0.08);
+  --shadow: 0 10px 40px rgba(12, 6, 48, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 
   font-family: var(--font-body);
   line-height: 1.55;
   font-weight: 400;
-  color-scheme: light;
+  color-scheme: dark;
   color: var(--ink);
   background-color: var(--ground);
   font-synthesis: none;
@@ -51,7 +52,13 @@ html, body, #root {
 
 body {
   font-family: inherit;
-  background: var(--ground);
+  background-color: var(--ground);
+  background-image:
+    radial-gradient(60vw 60vw at 8% 10%, rgba(124, 58, 237, 0.85), transparent 60%),
+    radial-gradient(55vw 55vw at 95% 15%, rgba(236, 72, 153, 0.6), transparent 60%),
+    radial-gradient(70vw 70vw at 80% 100%, rgba(6, 182, 212, 0.75), transparent 60%),
+    radial-gradient(50vw 50vw at 20% 95%, rgba(59, 130, 246, 0.6), transparent 60%);
+  background-attachment: fixed;
 }
 
 h1, h2, h3 {
@@ -87,16 +94,28 @@ input:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 0.95rem 1.6rem;
+  padding: 0.95rem 1.8rem;
   font-size: 1.05rem;
   color: #fff;
-  background: var(--accent);
-  border-radius: var(--radius-md);
+  background: var(--grad);
+  background-size: 160% 100%;
+  background-position: 0% 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(129, 140, 248, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 2px rgba(20, 10, 60, 0.35);
+  transition: background-position 0.4s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
-.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-primary:hover:not(:disabled) {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 34px rgba(232, 121, 249, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
 .btn-primary:disabled {
-  background: #C5D0CD;
-  color: #6F7E84;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+  text-shadow: none;
   cursor: not-allowed;
 }
 

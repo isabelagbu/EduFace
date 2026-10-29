@@ -1,0 +1,155 @@
+/* ===== Glass layer: loaded last so it sits on top of page styles ===== */
+
+/* Pages show the body gradient through */
+.welcome-wrapper,
+.webcam-preview-wrapper,
+.learning-wrapper {
+  background: transparent;
+}
+
+/* Frosted panels */
+.welcome-card,
+.webcam-preview-card,
+.welcome-header,
+.webcam-preview-header,
+.left-panel,
+.welcome-learning-content,
+.summary-content,
+.overlay-content,
+.debug-toggle,
+.debug-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.welcome-header,
+.webcam-preview-header {
+  border-width: 0 0 1px 0;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.left-panel { border-width: 0 1px 0 0; box-shadow: none; background: rgba(255, 255, 255, 0.08); }
+
+/* The wordmark carries the gradient */
+.brand {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Big headings get a soft glow */
+.welcome-title,
+.instruction-section h1,
+.welcome-learning-content h2 {
+  text-shadow: 0 2px 24px rgba(129, 140, 248, 0.45);
+}
+
+.step-label { color: var(--accent); }
+
+/* Consent box */
+.consent-label { background: rgba(255, 255, 255, 0.08); border-color: var(--line); }
+.consent-label:hover { border-color: rgba(255, 255, 255, 0.6); }
+.consent-label:has(input:checked) { background: var(--accent-soft); border-color: var(--accent); }
+
+/* Viewfinder glows when centred */
+.webcam-preview-container {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(12, 6, 48, 0.45);
+}
+.webcam-preview-container.success-flash {
+  outline-color: var(--ok);
+  box-shadow: 0 0 0 1px var(--ok), 0 0 48px rgba(110, 242, 168, 0.55);
+}
+
+/* Lesson page */
+.webcam-container { border: 1px solid rgba(255, 255, 255, 0.25); }
+.message-feed { background: rgba(255, 255, 255, 0.06); border-color: var(--line); }
+.message-bubble {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--ink);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.message-bubble.system { background: transparent; color: var(--ink-2); }
+.message-bubble.question { background: var(--accent-soft); border-color: rgba(94, 231, 223, 0.4); }
+.minimize-button { background: rgba(255, 255, 255, 0.85); color: #1A1440; }
+.clear-messages-btn { background: rgba(255, 255, 255, 0.14); color: var(--ink); border-color: var(--line); }
+
+.main-video {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 70px rgba(12, 6, 48, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.06);
+}
+
+/* In-video overlays: translucent so the lesson shows through */
+.rewind-overlay,
+.pause-reflect-overlay,
+.question-overlay,
+.summary-overlay,
+.countdown-overlay,
+.welcome-learning-overlay {
+  background: linear-gradient(135deg, rgba(76, 29, 149, 0.55), rgba(8, 145, 178, 0.45));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.question-option {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.question-option:hover { background: rgba(255, 255, 255, 0.24); border-color: rgba(255, 255, 255, 0.6); }
+
+.summary-title, .overlay-content h2 { color: var(--ink); }
+.summary-description, .overlay-content p { color: var(--ink-2); }
+.summary-facts h3, .summary-checkpoint { color: var(--accent); }
+.summary-facts li:hover { background: rgba(255, 255, 255, 0.08); }
+.close-summary { background: rgba(255, 255, 255, 0.16); color: #fff; }
+.summary-button.continue, .continue-btn { background: var(--grad); border-radius: 999px; }
+.rewind-btn { background: rgba(255, 255, 255, 0.14); color: #fff; border-color: var(--line); border-radius: 999px; }
+
+.countdown-circle {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(rgba(18, 14, 46, 0.35), rgba(18, 14, 46, 0.35)) padding-box,
+    var(--grad) border-box;
+}
+
+.progress-bar-container { background: rgba(255, 255, 255, 0.08); border-top-color: var(--line); }
+.progress-bar-background { background: rgba(255, 255, 255, 0.12); }
+.progress-bar-fill { background: var(--grad); }
+
+.debug-toggle { color: var(--ink); }
+.toggle-slider { background-color: rgba(255, 255, 255, 0.25); }
+.toggle-input:checked + .toggle-slider { background: var(--grad); }
+.debug-panel { background: rgba(18, 14, 46, 0.72); }
+
+/* One slow ambient motion: the background colours drift */
+@media (prefers-reduced-motion: no-preference) {
+  body { animation: drift 24s ease-in-out infinite alternate; background-size: 120% 120%; }
+}
+@keyframes drift {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 100%; }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .welcome-card, .webcam-preview-card, .welcome-learning-content, .summary-content, .overlay-content {
+    background: rgba(40, 30, 100, 0.85);
+  }
+}
+
+/* Status pills over live video need solid backing to stay readable */
+.connection-status.on  { background: rgba(6, 95, 70, 0.9);  color: #D1FAE5; }
+.connection-status.off { background: rgba(159, 18, 57, 0.9); color: #FFE4E6; }
+.status-indicator { align-self: flex-start; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.status-section, .actions-section { align-items: flex-start; }
+.consent-label input[type="checkbox"] { accent-color: #22D3EE; }
