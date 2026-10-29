@@ -1,4 +1,42 @@
-/* Base full-page layout */
+/* ===== EduFace design tokens ===== */
+:root {
+  --ground: #E7EDEB;      /* cool mist page ground */
+  --surface: #FFFFFF;
+  --surface-2: #F3F6F5;
+  --line: #D3DDDA;
+  --ink: #17262E;         /* deep slate */
+  --ink-2: #4E5F67;       /* secondary text */
+  --stage: #101C23;       /* dark stage behind the lesson video */
+  --accent: #1D6B66;      /* deep teal */
+  --accent-hover: #155550;
+  --accent-soft: #DCEBE8;
+  --ok: #2E7D4F;
+  --ok-soft: #DDEFE3;
+  --warn: #A3480F;
+  --warn-soft: #F7E6D8;
+  --error: #B42318;
+  --error-soft: #FBE3E1;
+
+  --font-display: 'Bricolage Grotesque', 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(23, 38, 46, 0.06), 0 8px 24px rgba(23, 38, 46, 0.08);
+
+  font-family: var(--font-body);
+  line-height: 1.55;
+  font-weight: 400;
+  color-scheme: light;
+  color: var(--ink);
+  background-color: var(--ground);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html, body, #root {
   width: 100%;
   height: 100%;
@@ -9,74 +47,63 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #2e003e; /* Updated dark background */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+*, *::before, *::after { box-sizing: inherit; }
 
 body {
-  display: flex;
-  place-items: center;
   font-family: inherit;
+  background: var(--ground);
 }
 
-/* Typography */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--ink);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent-hover); }
 
-/* Buttons */
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 700;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-/* Light mode override */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
 
-  button {
-    background-color: #f9f9f9;
-  }
+/* Shared primary button look */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  font-size: 1.05rem;
+  color: #fff;
+  background: var(--accent);
+  border-radius: var(--radius-md);
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-primary:disabled {
+  background: #C5D0CD;
+  color: #6F7E84;
+  cursor: not-allowed;
+}
 
-  a:hover {
-    color: #747bff;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -199,12 +199,10 @@ const LearningVideo: React.FC<LearningVideoProps> = ({
       {showWelcomeOverlay && (
         <div className="welcome-learning-overlay">
           <div className="welcome-learning-content">
-            <div className="welcome-icon">🎓</div>
-            <h2>Welcome to Your Learning Session!</h2>
-            <p>Get ready to explore the fascinating world of bacteriophages and their role in modern medicine.</p>
-            <button className="begin-learning-btn" onClick={onBeginLearning}>
-              <span>Begin Learning Session</span>
-              <span className="play-icon">▶️</span>
+            <h2>Ready when you are</h2>
+            <p>This lesson is about bacteriophages and their role in modern medicine. The video starts after a short countdown.</p>
+            <button className="begin-learning-btn btn-primary" onClick={onBeginLearning}>
+              <span>Start the lesson</span>
             </button>
           </div>
         </div>

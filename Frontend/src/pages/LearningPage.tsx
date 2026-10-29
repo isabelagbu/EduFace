@@ -18,7 +18,7 @@ const LearningPage: React.FC = () => {
   const [showFaceDetectionOverlay, setShowFaceDetectionOverlay] = useState(false);
   const [videoPausedForFace, setVideoPausedForFace] = useState(false);
   const [dominantEmotion, setDominantEmotion] = useState<string>(''); // Track dominant emotion
-  const [showDebugPanel, setShowDebugPanel] = useState(true); // Add debug panel visibility state
+  const [showDebugPanel, setShowDebugPanel] = useState(false); // Admin panel hidden by default; toggle top-right
   const beginAudioRef = useRef<HTMLAudioElement>(null);
   const faceDetectionTimeoutRef = useRef<number | null>(null);
 

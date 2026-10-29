@@ -17,12 +17,13 @@ function WelcomePage() {
   return (
     <div className="welcome-wrapper">
       <header className="welcome-header">
-        Digital Learning Study
+        <span className="brand">EduFace</span>
+        <span className="brand-sub">Digital Learning Study</span>
       </header>
 
       <div className="welcome-content">
         <main className="welcome-card">
-          <h2 className="welcome-title">Welcome to our digital learning study!</h2>
+          <h1 className="welcome-title">Welcome to our digital learning study</h1>
 
           <div className="scroll-content">
             <p>
@@ -49,12 +50,12 @@ function WelcomePage() {
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
               />
-              &nbsp; I have read the information above and consent to participate.
+              <span>I have read the information above and consent to participate.</span>
             </label>
           </div>
 
           <button
-            className="start-button"
+            className="start-button btn-primary"
             onClick={handleStart}
             disabled={!agreed}
           >

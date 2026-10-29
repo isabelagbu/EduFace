@@ -177,29 +177,21 @@ const WebcamPreview: React.FC = () => {
       {/* Hidden canvas for frame capture */}
       <canvas ref={canvasRef} style={{ display: 'none' }} />
 
-      <div className="webcam-preview-header">
-        <h1>Webcam Setup</h1>
-        <p>Please center yourself in the frame to continue</p>
-      </div>
+      <header className="webcam-preview-header">
+        <span className="brand">EduFace</span>
+        <span className="brand-sub">Webcam setup</span>
+      </header>
 
       <div className="webcam-preview-content">
         <div className="webcam-preview-card">
           <div className="instruction-section">
-            <div className="instruction-icon">📹</div>
-            <h2>Position Yourself</h2>
-            <p>Make sure your face is clearly visible and centered in the webcam preview below.</p>
+            <span className="step-label">Step 1 of 2</span>
+            <h1>Position yourself</h1>
+            <p>Make sure your face is clearly visible and centered in the webcam preview.</p>
             
             {/* Face detection status indicator */}
-            <div className="face-detection-status" style={{
-              marginTop: '8px',
-              padding: '4px 8px',
-              borderRadius: '4px',
-              backgroundColor: faceDetected ? '#4CAF50' : '#f44336', // Red when no face
-              color: 'white',
-              fontSize: '12px',
-              textAlign: 'center'
-            }}>
-              {faceDetected ? 'Face detected ✓' : 'No face detected ✗'}
+            <div className={`face-detection-status ${faceDetected ? 'yes' : 'no'}`}>
+              {faceDetected ? 'Face detected' : 'No face detected yet'}
             </div>
           </div>
 
@@ -218,6 +210,7 @@ const WebcamPreview: React.FC = () => {
             {/* Center guide overlay */}
             <div className="center-guide">
               <div className="guide-circle"></div>
+              <span className="corner tl" /><span className="corner tr" /><span className="corner bl" /><span className="corner br" />
               <div className="guide-text">
                 {isCheckingPosition ? (
                   <div className="checking-position">
@@ -257,19 +250,17 @@ const WebcamPreview: React.FC = () => {
 
           <div className="actions-section">
             <button 
-              className={`go-to-learning-btn ${(isCentered && faceDetected) ? 'active' : 'disabled'}`}
+              className={`go-to-learning-btn btn-primary ${(isCentered && faceDetected) ? 'active' : 'disabled'}`}
               onClick={handleGoToLearning}
               disabled={!isCentered || !faceDetected} // Disabled when no face or not centered
             >
               {(isCentered && faceDetected) ? (
                 <>
-                  <span>Go to Learning Session</span>
-                  <span className="arrow">→</span>
+                  <span>Continue to the lesson</span>
                 </>
               ) : (
                 <>
-                  <span>Go to Learning Session</span>
-                  <span className="lock">🔒</span>
+                  <span>Continue to the lesson</span>
                 </>
               )}
             </button>

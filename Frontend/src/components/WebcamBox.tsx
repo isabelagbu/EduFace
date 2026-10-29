@@ -121,28 +121,12 @@ const WebcamBox: React.FC<WebcamBoxProps> = ({ onAnalysisUpdate }) => {
   return (
     <div className="user-video-wrapper-outer">
       {/* Add connection status indicator */}
-      <div className="connection-status" style={{
-        position: 'absolute',
-        top: '8px',
-        right: '8px',
-        zIndex: 20,
-        padding: '4px 8px',
-        borderRadius: '4px',
-        backgroundColor: isConnected ? '#4CAF50' : '#f44336',
-        color: 'white',
-        fontSize: '12px'
-      }}>
+      <div className={`connection-status ${isConnected ? 'on' : 'off'}`}>
         {isConnected ? 'Connected' : 'Disconnected'}
       </div>
 
       <button
         className="minimize-button"
-        style={{
-          position: 'absolute',
-          top: '8px',
-          left: '8px',
-          zIndex: 20
-        }}
         onClick={() => setMinimized((prev) => !prev)}
         aria-label={minimized ? 'Show webcam' : 'Hide webcam'}
       >

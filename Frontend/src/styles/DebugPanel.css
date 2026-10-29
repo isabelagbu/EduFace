@@ -361,3 +361,15 @@
   vertical-align: middle;
   display: inline-block;
 }
+
+/* ===== Facelift: solid dark admin panel so status colours stay readable ===== */
+.debug-panel {
+  background: var(--stage);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgba(16, 28, 35, 0.35);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  font-family: var(--font-body);
+}
+.debug-panel button { border-radius: 999px; }
